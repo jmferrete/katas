@@ -1,26 +1,19 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name katasApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the katasApp
- */
 angular.module('katasApp')
-  .controller('TitleBarController', ['$scope', '$location', function ($scope, $location) {
+  .controller('TitleBarController', ['$scope', '$location', 'TitleService', function ($scope, $location, titleService) {
 
-  	$scope.highlightHomeLink = function() {
-      return ($location.path() === '/');
-    };
+    $scope.titleBarLinks = [];
 
-  	$scope.highlightAboutLink = function() {
-      return ($location.path() === '/about');
-    };
+    function init() {
+      $scope.titleBarLinks = titleService.initTitleLinks();
+    }
 
-  	$scope.highlightContactLink = function() {
-      return ($location.path() === '/contact');
-    };
+    $scope.isActiveLink = function(url) {
+      return ('#' + $location.path() === url);
+    }
+
+    init();
 
   }]
 );
