@@ -39,7 +39,7 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav" ng-controller="TitleBarController">
-              <li ng-repeat="(index, link) in titleBarLinks" ng-class="{active:isActiveLink(link.url)}">
+              <li ng-repeat="(index, link) in titleBarLinks" ng-class="{active:link.isActive($location.path())}">
                 <a ng-href="{{link.url}}">{{link.text}}</a>
               </li>
             </ul>
@@ -89,6 +89,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/titleBarController.js"></script>
         <script src="scripts/services/titleService.js"></script>
+        <script src="scripts/domains/TitleLink.js"></script>
         <!-- endbuild -->
 </body>
 </html>

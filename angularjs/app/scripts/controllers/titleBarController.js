@@ -9,10 +9,6 @@ angular.module('katasApp')
       $scope.titleBarLinks = titleService.initTitleLinks();
     }
 
-    $scope.isActiveLink = function(url) {
-      return ('#' + $location.path() === url);
-    }
-
     init();
 
   }]
