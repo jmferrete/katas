@@ -74,7 +74,6 @@ gulp.task('start:server', function() {
     root: [yeoman.app, '.tmp'],
     livereload: true,
     // Change this to '0.0.0.0' to access the server from outside.
-    host: '0.0.0.0',
     port: 9000
   });
 });
@@ -165,7 +164,7 @@ gulp.task('client:build', ['html', 'styles'], function () {
     .pipe($.minifyCss({cache: true}))
     .pipe(cssFilter.restore())
     .pipe($.rev())
-    .pipe($.useref.restore())
+    //.pipe($.useref.restore())
     .pipe($.revReplace())
     .pipe($.useref())
     .pipe(gulp.dest(yeoman.dist));
